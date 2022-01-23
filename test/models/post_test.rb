@@ -9,6 +9,18 @@ class PostTest < ActiveSupport::TestCase
     assert @post.valid?
   end
 
+  test "title is required" do
+    @post.title = ""
+    @post.valid?
+    assert_includes @post.errors[:title], I18n.t("errors.messages.blank")
+  end
+
+  test "title must be 200 characters" do
+    @post.title = "a" * 201
+    @post.valid?
+    assert_includes @post.errors[:title], I18n.t("errors.messages.too_long", count: 200)
+  end
+
   test "content is required" do
     @post.content = ""
     @post.valid?

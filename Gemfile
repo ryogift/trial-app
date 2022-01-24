@@ -22,6 +22,7 @@ group :development do
   gem "web-console", ">= 4.1.0"
   gem "listen", "~> 3.3"
   gem "rubocop", require: false
+  gem "foreman"
 end
 
 group :test do

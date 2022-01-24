@@ -91,6 +91,7 @@ GEM
     digest (3.1.0)
     erubi (1.10.0)
     ffi (1.15.5)
+    foreman (0.87.2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.8.11)
@@ -234,6 +235,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   cssbundling-rails
+  foreman
   jbuilder (~> 2.7)
   jsbundling-rails
   listen (~> 3.3)

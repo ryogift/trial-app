@@ -24,3 +24,11 @@ $ docker-compose run --rm app rails db:setup
 $ docker-compose up -d
 $ docker-compose exec app /bin/bash
 ```
+
+## javascript and css build
+
+```sh
+$ docker-compose exec app /bin/bash
+# ./bin/yarn build
+# ./bin/yarn build:css
+```

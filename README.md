@@ -11,11 +11,12 @@ DB_PASSWORD=password
 EOF
 ```
 
-docker build and db setup
+docker build and db setup and yarn install
 
 ```sh
 $ docker-compose build
 $ docker-compose run --rm app rails db:setup
+$ docker-compose run --rm app rails yarn:install
 ```
 
 ## develop
@@ -25,10 +26,14 @@ $ docker-compose up -d
 $ docker-compose exec app /bin/bash
 ```
 
-## javascript and css build
+testing
 
 ```sh
-$ docker-compose exec app /bin/bash
-# ./bin/yarn build
-# ./bin/yarn build:css
+$ ./bin/rails test
+```
+
+rubocop
+
+```sh
+$ ./bin/bundle exec rubocop
 ```

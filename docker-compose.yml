@@ -3,7 +3,7 @@ services:
   db:
     image: postgres:14.1-bullseye
     volumes:
-      - trial-db-data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
@@ -13,6 +13,7 @@ services:
       - 3000:3000
     volumes:
       - .:/trial-app
+      - node_modules:/trial-app/node_modules
     depends_on:
       - db
     environment:
@@ -20,5 +21,7 @@ services:
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
 volumes:
-  trial-db-data:
+  db-data:
+    driver: local
+  node_modules:
     driver: local

@@ -9,11 +9,11 @@ WORKDIR /trial-app
 COPY ./Gemfile /trial-app/Gemfile
 COPY ./Gemfile.lock /trial-app/Gemfile.lock
 
-RUN bundle install && rails yarn:install
+RUN bundle install
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["./bin/dev"]
